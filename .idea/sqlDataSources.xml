@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="d5241b9a-7eb9-4dec-a2e6-c761f1160f39" name="@localhost Mapping">
+      <data-sources db="424b0055-f1ff-435e-9f9d-cda634351b91" ddl="9f856ccd-505b-437d-84e5-399f0d064527" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="c1485c7f-43ac-4204-9545-6094082b39e7" />
+          <option name="name" value="DDL data source" />
+          <option name="languageId" value="MariaDB" />
+          <option name="urls">
+            <array />
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
