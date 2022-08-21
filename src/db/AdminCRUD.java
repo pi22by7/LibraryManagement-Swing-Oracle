@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class AdminCRUD {
     public boolean isValidAdmin(Admin admin)
     {
-        String sql = "select admin_id, password from ADMIN where admin_id = ? and password = ?";
+        String sql = "select admin_id, password from LIB_ADMIN.ADMIN where admin_id = ? and password = ?";
 
         try(Connection conn = DBConnectionManager.getConnection())
         {

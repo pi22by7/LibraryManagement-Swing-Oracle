@@ -517,7 +517,7 @@ public class BookCRUD {
 
     public String[] getAllCategory()
     {
-        String sql = "Select unique(category) from book";
+        String sql = "Select unique(publisher) from book";
         List<String> list = new ArrayList<>();
         list.add("Select");
         try(Connection conn = DBConnectionManager.getConnection())
