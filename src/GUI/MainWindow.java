@@ -21,6 +21,7 @@ public class MainWindow extends JFrame{
             if(name.length() == 0)
                 JOptionPane.showMessageDialog(panelSearchBook, "Please fill in the details", "Error", JOptionPane.ERROR_MESSAGE);
             BookCRUD dao = new BookCRUD();
+            System.out.println(dao.getByTitle(name));
             resultTable.setModel(dao.getByTitle(name));
         });
     }
