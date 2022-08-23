@@ -31,7 +31,7 @@ public class Login extends JFrame {
                 {
                     loggedIn = true;
                     System.out.println("Logged in successfully");
-                    new Main();
+                    java.awt.EventQueue.invokeLater(MainWindow::new);
                     frame.dispose();
                 }
                 else
