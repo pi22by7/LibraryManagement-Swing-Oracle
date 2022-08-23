@@ -1,23 +1,27 @@
 package GUI;
 
+import db.BookCRUD;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame{
     private JPanel MainMain;
     private JLabel Heading;
-    private JTable table1;
+    private JTable resultTable;
     private JTextField getTitle;
     private JButton submit;
 
+    private final JOptionPane panelSearchBook;
+
     public MainWindow(){
+        panelSearchBook = new JOptionPane();
 
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
+        submit.addActionListener(e -> {
+            String name = getTitle.getText().trim();
+            if(name.length() == 0)
+                JOptionPane.showMessageDialog(panelSearchBook, "Please fill in the details", "Error", JOptionPane.ERROR_MESSAGE);
+            BookCRUD dao = new BookCRUD();
+            resultTable.setModel(dao.getByTitle(name));
         });
     }
 

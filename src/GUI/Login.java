@@ -1,5 +1,6 @@
 package GUI;
 
+import com.sun.tools.javac.Main;
 import db.AdminCRUD;
 import models.Admin;
 
@@ -19,25 +20,22 @@ public class Login extends JFrame {
     private JButton Submit;
 
     public Login() {
-        Submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String id = UsernameField.getText().trim();
-                String password = String.valueOf(PasswordField.getPassword()).trim();
-                if(id.length() == 0 || password.length() == 0)
-                    JOptionPane.showMessageDialog(WarningPane, "Please enter Email and password", "Error", JOptionPane.ERROR_MESSAGE);
-                AdminCRUD dao = new AdminCRUD();
-                if(dao.isValidAdmin(new Admin(id, password)))
-                {
-                    loggedIn = true;
-                    System.out.println("Logged in successfully");
-                    java.awt.EventQueue.invokeLater(MainWindow::new);
-                    frame.dispose();
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(WarningPane, "Invalid Login!", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+        Submit.addActionListener(e -> {
+            String id = UsernameField.getText().trim();
+            String password = String.valueOf(PasswordField.getPassword()).trim();
+            if(id.length() == 0 || password.length() == 0)
+                JOptionPane.showMessageDialog(WarningPane, "Please enter Email and password", "Error", JOptionPane.ERROR_MESSAGE);
+            AdminCRUD dao = new AdminCRUD();
+            if(dao.isValidAdmin(new Admin(id, password)))
+            {
+                loggedIn = true;
+                System.out.println("Logged in successfully");
+                new MainWindow();
+                frame.dispose();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(WarningPane, "Invalid Login!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -60,7 +58,7 @@ public class Login extends JFrame {
         }
 //        </editor-fold>
 
-        JFrame frame = new JFrame("Login");
+        frame = new JFrame("Login");
         frame.setContentPane(new Login().MainPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
